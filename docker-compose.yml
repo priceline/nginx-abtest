@@ -1,0 +1,20 @@
+version: '3'
+services:
+  lb:
+    image: "nginx"
+    ports:
+      - 80:80
+    volumes:
+      - ./lb.conf:/etc/nginx/nginx.conf:ro
+  web:
+    image: "nginx"
+    ports:
+      - 8080:80
+    volumes:
+      - ./web.conf:/etc/nginx/nginx.conf:ro
+  test:
+    image: "nginx"
+    ports:
+      - 8081:80
+    volumes:
+      - ./test.conf:/etc/nginx/nginx.conf:ro
